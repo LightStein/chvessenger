@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context="com.example.testchat.LoginActivity">
+
+    <ImageView
+            android:id="@+id/iv_login_cloud"
+            android:layout_width="128dp"
+            android:layout_height="128dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:src="@mipmap/ic_launcher"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="64dp" app:layout_constraintBottom_toTopOf="@+id/editText_login_email"/>
+
+    <EditText
+            android:id="@+id/editText_login_email"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/background_message_receiver"
+            android:ems="10"
+            android:hint="ელფოსტა..."
+            android:inputType="textEmailAddress"
+            android:paddingBottom="8dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:textColorHint="#9000D8FF"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintBottom_toTopOf="@+id/editText_login_password" android:layout_marginBottom="16dp"/>
+
+    <EditText
+            android:id="@+id/editText_login_password"
+            android:layout_width="0dp"
+            android:layout_height="43dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginStart="16dp"
+            android:background="@drawable/background_message_receiver"
+            android:ems="10"
+            android:hint="პაროლი..."
+            android:inputType="textPassword"
+            android:textColorHint="#9000D8FF"
+            android:paddingBottom="8dp"
+            android:paddingEnd="4dp"
+            android:paddingStart="16dp"
+            android:paddingTop="8dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintBottom_toTopOf="@+id/textView_login_register" android:layout_marginBottom="228dp"
+    />
+
+    <TextView
+            android:id="@+id/textView_login_register"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:text="ჯერ არ გაქვთ აკაუნტი?"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_bright"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toTopOf="@+id/v_register"/>
+
+    <View
+        android:id="@+id/v_register"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="70dp"
+        android:background="@android:color/holo_blue_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+            android:id="@+id/button_login_login"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_message_receiver"
+            android:paddingBottom="4dp"
+            android:paddingEnd="32dp"
+            android:paddingStart="32dp"
+            android:paddingTop="4dp"
+            android:text="შესვლა"
+            android:textColor="@color/colorPrimary"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/v_register" android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginStart="8dp"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+</android.support.constraint.ConstraintLayout>

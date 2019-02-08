@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.testchat.MessageActivity"
+    android:background="#000">
+
+    <RelativeLayout
+            android:id="@+id/rl_message_header"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/background_message_sender"
+            android:padding="2dp" android:layout_marginTop="2dp">
+
+        <ImageView
+                android:id="@+id/imageView_message_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="4dp"
+                android:padding="4dp"
+                android:src="@drawable/ic_arrow_back_24dp"/>
+
+        <TextView
+                android:id="@+id/textView_message_receivername"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="8dp"
+                android:layout_toEndOf="@id/imageView_message_back"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="Username"/>
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/cv_message_profile"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="2dp"
+                android:layout_toStartOf="@+id/popupMenu_feed_main"
+                app:cardCornerRadius="20dp">
+
+            <ImageView
+                    android:id="@+id/imageView_message_receiverprofile"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:contentDescription="Profile Image"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_person_24dp"/>
+        </android.support.v7.widget.CardView>
+
+        <ImageView
+                android:id="@+id/popupMenu_feed_main"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="4dp"
+                android:contentDescription="main_menu_overflow"
+                android:onClick="showPopupSetting"
+                android:paddingTop="4dp"
+                android:src="@drawable/ic_reorder_24dp"/>
+    </RelativeLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView_message_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/ll_message"
+        android:layout_below="@+id/rl_message_header"
+        android:layout_marginBottom="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#000"/>
+
+    <LinearLayout
+            android:id="@+id/ll_message"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:weightSum="5" android:background="#000">
+
+        <EditText
+                android:id="@+id/editText_message_message"
+                android:layout_width="0dip"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_weight="5"
+                android:hint="დაწერეთ შეტყობინება..."
+                android:inputType="textMultiLine"
+                android:textColor="@color/colorPrimary1"
+                android:textSize="18sp" android:textColorHint="#A9A9A9"
+                android:textColorHighlight="@color/colorPrimary"
+                android:backgroundTint="@color/colorPrimary1"/>
+
+        <ImageButton
+                android:id="@+id/imageButton_message_send"
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_send_24dp"/>
+    </LinearLayout>
+
+</RelativeLayout>

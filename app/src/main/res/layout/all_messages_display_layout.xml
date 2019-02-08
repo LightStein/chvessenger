@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="4dp">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_all_messages_receiver"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="4dp"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/imageView_all_messages_receiver_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_24dp" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/textView_all_messages_receiver"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_toEndOf="@+id/cv_all_messages_receiver"
+        android:background="@drawable/background_message_receiver"
+        android:padding="4dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="18sp"
+        android:visibility="gone"
+        tools:text="This is from receiver" />
+
+    <TextView
+        android:id="@+id/textView_all_messages_sender"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="4dp"
+        android:layout_toStartOf="@+id/cv_all_messages_sender"
+        android:background="@drawable/background_message_sender"
+        android:padding="4dp"
+        android:textColor="@color/colorPrimary1"
+        android:textSize="18sp"
+        android:visibility="gone"
+        tools:text="This is from sender" />
+
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cv_all_messages_sender"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="4dp"
+        android:visibility="gone"
+        app:cardCornerRadius="20dp">
+
+        <ImageView
+            android:id="@+id/imageView_all_messages_sender_profile"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_person_24dp" />
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>
+
+
