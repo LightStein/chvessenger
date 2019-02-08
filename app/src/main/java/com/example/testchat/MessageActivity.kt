@@ -205,7 +205,7 @@ class MessageActivity : AppCompatActivity() {
             .addOnCompleteListener {
                 if (it.isSuccessful) {
                     editText_message_message.text.clear()
-                    Toast.makeText(this@MessageActivity, "Message Sent", Toast.LENGTH_SHORT).show()
+//                    Toast.makeText(this@MessageActivity, "Message Sent", Toast.LENGTH_SHORT).show()
                     recyclerView_message_list.scrollToPosition(mMessageAdapter!!.itemCount - 1)
                 } else {
                     val message = it.exception!!.message
