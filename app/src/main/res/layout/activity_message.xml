@@ -70,23 +70,32 @@
     </RelativeLayout>
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/recyclerView_message_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/ll_message"
-        android:layout_below="@+id/rl_message_header"
-        android:layout_marginBottom="2dp"
-        android:layout_marginTop="0dp"
-        android:background="#000"/>
+            android:id="@+id/recyclerView_message_list"
+            android:layout_width="match_parent"
+            android:layout_height="620dp"
+            android:layout_above="@id/ll_message"
+            android:layout_below="@+id/rl_message_header"
+            android:layout_marginBottom="-9dp"
+            android:layout_marginTop="0dp"
+            android:background="#000"/>
 
     <LinearLayout
             android:id="@+id/ll_message"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             android:weightSum="5" android:background="#000">
 
+        <ImageButton
+                android:id="@+id/imageButton_like"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="0dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_like"/>
         <EditText
                 android:id="@+id/editText_message_message"
                 android:layout_width="0dip"
@@ -101,6 +110,7 @@
                 android:textSize="18sp" android:textColorHint="#A9A9A9"
                 android:textColorHighlight="@color/colorPrimary"
                 android:backgroundTint="@color/colorPrimary1"/>
+
 
         <ImageButton
                 android:id="@+id/imageButton_message_send"

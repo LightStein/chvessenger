@@ -24,10 +24,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        println("######################## oncreate ###########################")
+
         currentUser = FirebaseAuth.getInstance().currentUser
 
         checkUserLoginStatus()
-
         recyclerView_main_messages.setHasFixedSize(true)
         val layoutmanager = LinearLayoutManager(this)
         recyclerView_main_messages.layoutManager = layoutmanager
@@ -39,7 +40,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        println("######################## onResume ###########################")
+
         fetchUsersAndMessages()
+    }
+
+    override fun onStop() {
+        super.onStop()
+        println("######################## onStop ###########################")
+        mUMArrayList.clear()
     }
 
     private fun checkUserLoginStatus() {
@@ -106,15 +115,15 @@ class MainActivity : AppCompatActivity() {
 
             latestRef.child(senderUid)
                 .addChildEventListener(object : ChildEventListener {
-                    override fun onChildAdded(p0: DataSnapshot, p1: String?) {
-                        mUMArrayList.clear()
+                    override fun onChildAdded(p0: DataSnapshot, s: String?) {
+//                        mUMArrayList.clear()
                         val latestmessage = p0.getValue(UsersMessages::class.java) ?: return
                         mUMArrayList.add(latestmessage)
                         mUMAdapter!!.notifyDataSetChanged()
                     }
 
-                    override fun onChildChanged(p0: DataSnapshot, p1: String?) {
-                        mUMArrayList.clear()
+                    override fun onChildChanged(p0: DataSnapshot, s: String?) {
+//                        mUMArrayList.clear()
                         val latestmessage = p0.getValue(UsersMessages::class.java) ?: return
                         mUMArrayList.add(latestmessage)
                         mUMAdapter!!.notifyDataSetChanged()
@@ -124,7 +133,7 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(this@MainActivity, "onCancelled: no message", Toast.LENGTH_SHORT).show()
                     }
 
-                    override fun onChildMoved(p0: DataSnapshot, p1: String?) {
+                    override fun onChildMoved(p0: DataSnapshot, s: String?) {
                     }
 
                     override fun onChildRemoved(p0: DataSnapshot) {
@@ -158,6 +167,7 @@ class MainActivity : AppCompatActivity() {
 //                }
 
                 override fun onDataChange(p0: DataSnapshot) {
+                    userNameText.text = p0.child("username").value.toString()
                     if (p0.exists()) {
                         Picasso.get().load(p0.child("profileimageUrl").value.toString())
                             .resize(40,40)

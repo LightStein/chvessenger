@@ -22,8 +22,7 @@ class FindFriendsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_find_friends)
-
-        supportActionBar?.title = "Find Friends"
+//        supportActionBar?.title = "Find Friends"
 
         recyclerView_find_friends_list.setHasFixedSize(true)
         recyclerView_find_friends_list.layoutManager = LinearLayoutManager(this)

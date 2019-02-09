@@ -1,9 +1,12 @@
 package com.example.testchat
 
+import android.app.PendingIntent
+import android.app.TaskStackBuilder
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
+import android.support.v4.app.NotificationCompat
 import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import android.view.View
@@ -53,6 +56,11 @@ class MessageActivity : AppCompatActivity() {
         recyclerView_message_list.adapter = mMessageAdapter
 
         fetchMessages()
+        imageButton_like.setOnClickListener{
+            SendMessage("\uD83D\uDC4D")
+//            SendMessage("&#x128522")
+
+        }
 
         imageButton_message_send.setOnClickListener {
             val messageText = editText_message_message.text.toString()
@@ -60,7 +68,10 @@ class MessageActivity : AppCompatActivity() {
                 Snackbar.make(it, "ჯერ ტექსტი დაწერე", Snackbar.LENGTH_SHORT).show()
             } else {
                 Log.d(TAG, "SendMessage():::  Sending message...")
-                SendMessage(encryption.encryptOrNull(messageText))
+                if (messageText != "\uD83D\uDC4D")
+                    SendMessage(encryption.encryptOrNull(messageText))
+                else
+                    SendMessage(messageText)
             }
         }
 
@@ -123,7 +134,10 @@ class MessageActivity : AppCompatActivity() {
                         val messages = dataSnapshot.getValue(Messages::class.java)
                         messages!!.receiverId = receiverUid!!
                         var tempMessages: Messages = messages
-                        tempMessages.message = encryption.decryptOrNull(tempMessages.message)
+
+                        if (tempMessages.message != "\uD83D\uDC4D")
+                            tempMessages.message = encryption.decryptOrNull(tempMessages.message)
+
                         mMessagesArrayList.add(tempMessages)
 
                         mMessageAdapter!!.notifyDataSetChanged()
@@ -147,7 +161,6 @@ class MessageActivity : AppCompatActivity() {
                 }
             })
     }
-
 
     private fun SendMessage(messageText: String) {
         val message_send_ref = "Messages/$senderUid/$receiverUid"
@@ -220,4 +233,6 @@ class MessageActivity : AppCompatActivity() {
         startActivity(mainIntent)
         finish()
     }
+
+
 }
