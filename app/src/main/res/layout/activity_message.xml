@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.testchat.MessageActivity"
-    android:background="#000">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.example.testchat.MessageActivity"
+                android:background="#000">
 
     <RelativeLayout
             android:id="@+id/rl_message_header"
@@ -75,14 +75,14 @@
             android:layout_height="620dp"
             android:layout_above="@id/ll_message"
             android:layout_below="@+id/rl_message_header"
-            android:layout_marginBottom="-9dp"
+            android:layout_marginBottom="0dp"
             android:layout_marginTop="0dp"
             android:background="#000"/>
 
     <LinearLayout
             android:id="@+id/ll_message"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="48dp"
             android:layout_alignParentBottom="true"
             android:orientation="horizontal"
             android:weightSum="5" android:background="#000">

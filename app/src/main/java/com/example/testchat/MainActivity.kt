@@ -16,7 +16,7 @@ import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-    var currentUser: FirebaseUser? = null
+    private var currentUser: FirebaseUser? = null
     var mUMArrayList: ArrayList<UsersMessages> = ArrayList()
     var mUMAdapter: UsersMessagesAdapter? = null
 
@@ -35,6 +35,9 @@ class MainActivity : AppCompatActivity() {
 
         mUMAdapter = UsersMessagesAdapter(this, mUMArrayList)
         recyclerView_main_messages.adapter = mUMAdapter
+
+        //  Push Notifications
+
 
     }
 
@@ -170,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                     userNameText.text = p0.child("username").value.toString()
                     if (p0.exists()) {
                         Picasso.get().load(p0.child("profileimageUrl").value.toString())
-                            .resize(40,40)
+                            .resize(40, 40)
                             .onlyScaleDown()
                             .centerCrop()
                             .into(imageView_main_userprofile)
